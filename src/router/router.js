@@ -86,6 +86,20 @@ export const appRouter = [
                     import ('@/views/demo/deviceindex.vue')
             }
         ]
+    },
+    {
+        path: '/vis',
+        icon: 'guzhangguanli',
+        title: '可视化',
+        name: 'vis',
+        component: Main,
+        children: [{
+            path: 'index',
+            title: 'iframe',
+            name: 'vis_iframe',
+            component: () =>
+                import ('@/views/demo/detail.vue')
+        }]
     }
 ];
 

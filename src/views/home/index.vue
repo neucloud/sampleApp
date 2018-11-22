@@ -7,7 +7,7 @@
 <script>
     import mqtt from 'mqtt'
     import echarts from 'echarts'
-    import {mqttBrokerUrl, mqttTopic} from '@/api/url'
+    import {baseUrl} from '@/api/url'
     export default {
         data () {
             return {
@@ -57,9 +57,7 @@
         },
         mounted() {
             this.chart = echarts.init(this.$refs.chart)
-            if (mqttBrokerUrl && mqttTopic) {
-                this.connect(mqttBrokerUrl, mqttTopic)
-            }
+            this.connect(baseUrl + '/mqtt', 'sub/neucloud/websocket')
         },
         methods: {
             connect(brokerUrl, topic) {

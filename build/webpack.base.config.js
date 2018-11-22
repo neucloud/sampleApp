@@ -5,13 +5,6 @@ const { VueLoaderPlugin } = require('vue-loader');
 const pkg = require('../package.json');
 const { resolve } = require('./utils');
 
-const NODE_ENV = `"${process.env.NODE_ENV ? process.env.NODE_ENV : 'development'}"`;
-const devUrl = `"${process.env.devUrl? process.env.devUrl : ''}"`;
-const uaaHost = `"${process.env.uaaHost ? process.env.uaaHost : 'http://uaa.yeseer.cn'}"`;
-const clientId = `"${process.env.clientId ? process.env.clientId : ''}"`;
-const mqttBrokerUrl = `"${process.env.mqttBrokerUrl ? process.env.mqttBrokerUrl : ''}"`;
-const mqttTopic = `"${process.env.mqttTopic ? process.env.mqttTopic : ''}"`;
-
 module.exports = {
     entry: {
         main: '@/main',
@@ -71,12 +64,10 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: NODE_ENV,
-                devUrl: devUrl,
-                uaaHost: uaaHost,
-                clientId: clientId,
-                mqttBrokerUrl: mqttBrokerUrl,
-                mqttTopic: mqttTopic
+                NODE_ENV: `"${process.env.NODE_ENV ? process.env.NODE_ENV : 'development'}"`,
+                devUrl: `"${process.env.devUrl? process.env.devUrl : ''}"`,
+                uaaHost: `"${process.env.uaaHost ? process.env.uaaHost : 'http://uaa.yeseer.cn'}"`,
+                clientId: `"${process.env.clientId ? process.env.clientId : ''}"`
             }
         }),
         new VueLoaderPlugin(),

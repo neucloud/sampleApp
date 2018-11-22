@@ -8,7 +8,3 @@ export const loginUaaConfig = {
     host: process.env.uaaHost,
     parame: config.parame
 }
-
-export const mqttBrokerUrl = process.env.mqttBrokerUrl
-
-export const mqttTopic = process.env.mqttTopic
